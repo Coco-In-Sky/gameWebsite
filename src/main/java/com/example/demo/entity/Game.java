@@ -24,4 +24,15 @@ public class Game {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Task> taskSet;
 
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", gameName='" + gameName + '\'' +
+                ", taskSet=" + taskSet +
+                '}';
+    }
+
+    public Game() {
+    }
 }

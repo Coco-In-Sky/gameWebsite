@@ -45,4 +45,21 @@ public class Task {
     @OneToMany(mappedBy = "task", fetch = FetchType.EAGER)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Participation> participationSet;
+
+    public Task() {
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", attendNumber=" + attendNumber +
+                ", tag='" + tag + '\'' +
+                ", user=" + user +
+                ", game=" + game +
+                ", participationSet=" + participationSet +
+                '}';
+    }
 }

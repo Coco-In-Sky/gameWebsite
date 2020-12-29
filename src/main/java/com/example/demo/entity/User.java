@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.Generated;
 import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
@@ -37,7 +38,8 @@ public class User {
 
     @Basic
     @NonNull
-    @Size(min = 1,max = 5)
+//    @Size(min = 1,max = 5)
+    @Value("100")
     private int reputation;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
@@ -47,4 +49,22 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Participation> participationSet;
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", description='" + description + '\'' +
+                ", reputation=" + reputation +
+                ", taskSet=" + taskSet +
+                ", participationSet=" + participationSet +
+                '}';
+    }
+
 }

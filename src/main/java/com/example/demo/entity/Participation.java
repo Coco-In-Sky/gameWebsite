@@ -25,4 +25,15 @@ public class Participation {
     @JoinColumn(name="user_id")
     private User user;
 
+    public Participation() {
+    }
+
+    @Override
+    public String toString() {
+        return "Participation{" +
+                "id=" + id +
+                ", task=" + task +
+                ", user=" + user +
+                '}';
+    }
 }
